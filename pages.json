@@ -1,0 +1,109 @@
+{
+	"pages": [
+		// pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": " ",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "24px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/index/czc",
+			"style": {
+				"navigationBarTitleText": "查政策",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		{
+			"path": "pages/index/news",
+			"style": {
+				"navigationBarTitleText": "新闻详情",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		// findProject找项目
+		{
+			"path": "pages/findProject/findProject",
+			"style": {
+				"navigationBarTitleText": "找项目",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		//  result交易结果
+		{
+			"path": "pages/results/result",
+			"style": {
+				"navigationBarTitleText": "交易结果",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		//综合查询
+		{
+			"path": "pages/integratedQuery/integratedQuery",
+			"style": {
+				"navigationBarTitleText": "综合查询",
+				"app-plus": {
+					"titleNView": {
+						// "titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		},
+		//项目详情
+		{
+			"path": "pages/projectDetails/projectDetails",
+			"style": {
+				"navigationBarTitleText": "项目详情",
+				"app-plus": {
+					"titleNView": {
+						"titleSize": "22px" //pages.json里不支持 upx
+					}
+				}
+			}
+		}
+	],
+	"globalStyle": {
+		"pageOrientation": "portrait",
+		"navigationBarTitleText": "Hello uniapp",
+		"navigationBarTextStyle": "white",
+		"navigationBarBackgroundColor": "#3b89ff",
+		"backgroundColor": "#F8F8F8",
+		"backgroundColorTop": "#F4F5F6",
+		"backgroundColorBottom": "#F4F5F6",
+		"mp-360": {
+			"navigationStyle": "custom"
+		},
+		"h5": {
+			"maxWidth": 1190,
+			"navigationBarTextStyle": "white",
+			"navigationBarBackgroundColor": "#3b89ff"
+		}
+	},
+	"tabBar": {
+		"color": "#7A7E83",
+		"selectedColor": "#007AFF",
+		"borderStyle": "black",
+		"backgroundColor": "#F8F8F8"
+	}
+}
