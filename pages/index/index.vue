@@ -1,9 +1,9 @@
 <template>
 	<view class="content">
 		<view class="header">
+			<image src="../../static/images/bg.png" mode="" class="header-image"></image>
 			<view class="header_title">
-				<!-- <image src="../../static/images/bt.png" alt=""> -->
-				<view></view>
+			<image src="../../static/images/bt.png" mode=""></image>
 			</view>
 			<view class="header_tabbar">
 				<view class="header_tabbar_ul">
@@ -66,10 +66,10 @@
 		methods: {
 			getProject() {
 				uni.request({
-					url:'../../static/json/index.json',
+					url: '../../static/json/index.json',
 					// url:'http://localhost:8081/static/json/index.json',
 					sslVerify: false,
-					success:(res)=>{
+					success: (res) => {
 						console.log('request success', res)
 						this.res = '请求结果 : ' + JSON.stringify(res);
 						this.Project = res.data.Index
@@ -101,23 +101,36 @@
 
 	/* 首页头部 */
 	.header {
-		background: url('../../static/images/bg.png') no-repeat;
 		height: 590rpx;
 		background-size: 100% 100%;
+		position: relative;
+	}
+	.header-image{
+		height: 590rpx;
+		width: 100%;
 	}
 
 	.header_title {
-		height: 230rpx;
+		position: absolute;
+		top: 0;
+		height: 200rpx;
+		width: 100%;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
+	.header_title image{
+		margin-top: 40rpx;
+		text-align: center;
+		height: 160rpx;
+		width: 59%;
+	}
 
-	.header_title view {
-		background: url(../../static/images/bt.png);
-		width: 430rpx;
-		height: 146rpx;
-		background-size: 100% 100%;
+	.header_tabbar {
+		position: absolute;
+		top: 250rpx;
+		width: 100%;
+
 	}
 
 	.header_tabbar .header_tabbar_ul {

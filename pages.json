@@ -76,9 +76,7 @@
 			"style": {
 				"navigationBarTitleText": "项目详情",
 				"app-plus": {
-					"titleNView": {
-						"titleSize": "22px" //pages.json里不支持 upx
-					}
+					"titleNView": {}
 				}
 			}
 		}
@@ -99,11 +97,5 @@
 			"navigationBarTextStyle": "white",
 			"navigationBarBackgroundColor": "#3b89ff"
 		}
-	},
-	"tabBar": {
-		"color": "#7A7E83",
-		"selectedColor": "#007AFF",
-		"borderStyle": "black",
-		"backgroundColor": "#F8F8F8"
 	}
 }

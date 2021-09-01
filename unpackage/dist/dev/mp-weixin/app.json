@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/czc",
+    "pages/index/news",
+    "pages/findProject/findProject",
+    "pages/results/result",
+    "pages/integratedQuery/integratedQuery",
+    "pages/projectDetails/projectDetails"
+  ],
+  "subPackages": [],
+  "window": {
+    "pageOrientation": "portrait",
+    "navigationBarTitleText": "Hello uniapp",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#3b89ff",
+    "backgroundColor": "#F8F8F8",
+    "backgroundColorTop": "#F4F5F6",
+    "backgroundColorBottom": "#F4F5F6"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "演示定位能力"
+    }
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/czc",
+    "pages/index/news",
+    "pages/findProject/findProject",
+    "pages/results/result",
+    "pages/integratedQuery/integratedQuery",
+    "pages/projectDetails/projectDetails"
+  ],
+  "subPackages": [],
+  "window": {
+    "defaultTitle": "Hello uniapp",
+    "titleBarColor": "#3b89ff",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}
