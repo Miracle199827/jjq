@@ -1,12 +1,20 @@
 import App from './App'
 import store from './store'
-import axios from './axios'
 // #ifndef VUE3
 import Vue from 'vue'
+
+import request from './common/request.js'
+import api from './api/index.js'
+import url from './common/config.js'
+
 Vue.config.productionTip = false
 Vue.prototype.$store = store
 Vue.prototype.$adpid = "1111111111"
-Vue.prototype.$axios = axios;
+
+Vue.prototype.$request = request
+Vue.prototype.$api = api
+Vue.prototype.$url = url
+
 Vue.prototype.$backgroundAudioData = {
 	playing: false,
 	playTime: 0,
@@ -15,7 +23,6 @@ Vue.prototype.$backgroundAudioData = {
 App.mpType = 'app'
 const app = new Vue({
 	store,
-	axios,
 	...App
 })
 app.$mount()

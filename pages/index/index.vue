@@ -66,7 +66,7 @@
 		methods: {
 			getProject() {
 				uni.request({
-					url: '../../static/json/index.json',
+					url:this.$url + 'api-zlb/queryNew.do',
 					// url:'http://localhost:8081/static/json/index.json',
 					sslVerify: false,
 					success: (res) => {
