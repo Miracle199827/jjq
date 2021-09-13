@@ -1,41 +1,13 @@
 <template>
 	<view class="content">
-		<view class="fwxxxqmain-nav" v-for="project in Project">
-			<view class="fwxxxqmain-nav-h2">{{project.title}}</view>
+		<view class="fwxxxqmain-nav">
+			<view class="fwxxxqmain-nav-h2">{{newTitle}}</view>
 			<view class="nav-div">
-				<text>{{project.name}}</text>
-				<text>{{project.time}}</text>
+				<text>{{publishDate}}</text>
 			</view>
-			<view class="nav-p">{{project.p}}</view>
 		</view>
-		<view class="fwxxxqmain-main" v-for="main in main">
-			<view>{{main.name}}</view>
-			<view class="fwxxxqmain-main-h3">{{main.h3one}}</view>
-			<view>
-				{{main.textone}}
-			</view>
-			<view>
-				{{main.texttwo}}
-			</view>
-			<view>
-				{{main.texttree}}
-			</view>
-			<view class="fwxxxqmain-main-h3">{{main.h3two}}</view>
-			<view>
-				{{main.textone}}
-			</view>
-			<view>
-				{{main.texttwo}}
-			</view>
-			<view>
-				{{main.texttree}}
-			</view>
-			<view class="main-ul" v-for="mainul in mainul">
-				<view class="main-li"><text>{{mainul.name}}</text>
-				</view>
-				<view class="main-li"><text class="pins-width">{{mainul.phone}}</text>
-				</view>
-			</view>
+		<view class="fwxxxqmain-main">
+			<rich-text v-html="main"></rich-text>
 		</view>
 	</view>
 </template>
@@ -44,25 +16,57 @@
 	export default {
 		data() {
 			return {
-				Project: [],
-				main: [],
-				mainul: [],
+				// 新闻id
+				newId: 0,
+				//新闻title
+				newTitle: '',
+				//新闻时间
+				publishDate: '',
+				//新闻内容
+				main: '',
+				// mainul: [],
 			}
+		},
+		onLoad(potion) {
+			// this.get_h(potion.potion)
+			console.log(potion.id)
+			this.newId = potion.id
+			this.newTitle = potion.title
 		},
 		mounted() {
 			this.getProject()
 		},
+	    updated() {
+			var p = document.querySelectorAll('p')
+			var span = document.querySelectorAll('span')
+			var div = document.getElementsByClassName('fwxxxqmain-main')
+			for (var i = 0; i < p.length; i++) {
+				p[i].style.fontSize="16px"
+				p[i].style.fontFamily="kaiti"
+				p[i].style.fontWeight="500"
+			}
+			for (var i = 0; i < span.length; i++) {
+				span[i].style.fontSize="16px"
+				span[i].style.fontFamily="kaiti"
+				span[i].style.fontWeight="500"
+			}
+			for (var i = 0; i < div.length; i++) {
+				div[i].style.fontSize="16px"
+				div[i].style.fontFamily="kaiti"
+				div[i].style.fontWeight="500"
+			}
+			document.querySelector('img').style.width="100%"
+	    },
 		methods: {
 			getProject() {
 				uni.request({
-					url: '../../static/json/news.json',
+					url: this.$url + 'api-zlb/queryNewDetail.do?' + 'newId=' + this.newId,
 					sslVerify: false,
 					success: (res) => {
 						console.log('request success', res)
 						this.res = '请求结果 : ' + JSON.stringify(res);
-						this.Project = res.data.Czc
-						this.main = res.data.main
-						this.mainul = res.data.mainul
+						this.publishDate = res.data.data.publishDate
+						this.main = res.data.data.content
 					},
 					fail: (err) => {
 						console.log('request fail', err);
@@ -73,6 +77,8 @@
 					},
 					complete: () => {
 						this.loading = false;
+
+
 					}
 				})
 			},
@@ -91,20 +97,15 @@
 		text-align: center;
 		font-weight: bold;
 		color: #333333;
-		margin: 39rpx 0 32rpx 0;
+		margin: 39rpx 0 20rpx 0;
 	}
 
 	.nav-div {
 		font-size: 24rpx;
 		color: #999999;
 		display: flex;
-		justify-content: space-around;
-	}
-
-	.nav-div text {
-		/* display: inline-block; */
-		padding: 0 15rpx;
-		width: 50%;
+		justify-content: center;
+		margin-bottom: 20rpx;
 	}
 
 	.nav-div text:nth-child(1) {
@@ -128,9 +129,11 @@
 		margin-bottom: 20rpx;
 		border: 1rpx solid #ccc;
 		border-radius: 8rpx;
+		background-color: #FFFFFF;
+		overflow: hidden;
 	}
 
-	.fwxxxqmain-main view {
+	.fwxxxqmain-main rich-text {
 		color: #666666;
 		font-size: 24rpx;
 		line-height: 48rpx;
@@ -171,4 +174,5 @@
 	/* 	.pins-width{	
 		width: 100rpx;
 	} */
+
 </style>

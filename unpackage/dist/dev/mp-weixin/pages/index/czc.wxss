@@ -1,4 +1,11 @@
 
+.search.data-v-23120466{
+	padding: 15rpx 28rpx;
+	border-bottom: 2rpx solid #e5e5e5;
+}
+uni-easyinput.data-v-23120466{
+	background-color: #FFFFFF;
+}
 uni-page-body.data-v-23120466 {
 	background: #FFFFFF !important;
 }

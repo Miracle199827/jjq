@@ -19,24 +19,26 @@
 		</view>
 		<view class="integratedQuery_items" v-for="integratedQuery in IntegratedQuery">
 			<view  @click="gotoDetails()">
-				<text class="items_title">{{integratedQuery.name}}</text>
-				<text class="items_type">产权类型：{{integratedQuery.type}}</text>
-				<text class="items_place">交易地点：{{integratedQuery.place}}</text>
-				<text class="items_time">公示日期：{{integratedQuery.time}}</text>
+				<text class="items_title">{{integratedQuery.proName}}</text>
+				<text class="items_type">产权类型：{{integratedQuery.proType}}</text>
+				<text class="items_place">交易地点：{{integratedQuery.address}}</text>
+				<text class="items_time">公示日期：{{integratedQuery.publishDate}}</text>
 			</view>
 		</view>
 	</view>
 </template>
 
 <script>
+	var pageIndex = 1;
 	export default {
 		data() {
 			return {
+				pageSize: 10,
 				Choose1: true,
 				Choose2: true,
-				typeArray: ['全部', '土地经营权', '农村集体经营性资产', '涉农资金项目'],
+				typeArray: ['土地经营权', '农村养殖水面经营权', '“四荒”使用权','林权','农村集体经营性资产','农业生产设施设备','小型水利设施','涉农资金项目','农民住房财产权','农户宅基地使用权','农村集体资产股权','海域使用权','农业类知识产权','其他'],
 				typeIndex: 0,
-				areaArray: ['全部', '0~10亩', '10~50亩', '50~100亩', '100~500亩', '500亩以上'],
+				areaArray: ['0-10亩', '10-50亩', '50-100亩','100亩以上'],
 				areaIndex: 0,
 				IntegratedQuery: [],
 				value:'',
@@ -59,7 +61,7 @@
 			getIntegratedQuery() {
 				uni.request({
 					// url:'http://localhost:8080/static/json/integratedQuery.json',
-					url:'../../static/json/integratedQuery.json',
+					url: this.$url + 'api-zlb/queryZhcx.do',
 					success:(res)=>{
 						console.log('request success', res)
 						this.res = '请求结果 : ' + JSON.stringify(res);
@@ -88,6 +90,7 @@
 				this.Choose2 = false
 			},
 			gotoDetails(){
+				console.log(111)
 				uni.navigateTo({
 					url:"../projectDetails/projectDetails"
 				})

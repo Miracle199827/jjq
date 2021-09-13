@@ -1,35 +1,36 @@
 <template>
 	<view class="content">
+		<!-- 	<request-loading></request-loading> -->
 		<view class="header">
 			<image src="../../static/images/bg.png" mode="" class="header-image"></image>
 			<view class="header_title">
-			<image src="../../static/images/bt.png" mode=""></image>
+				<image src="../../static/images/bt.png" mode=""></image>
 			</view>
 			<view class="header_tabbar">
 				<view class="header_tabbar_ul">
-					<view class="header_tabbar_li" id="findProject">
-						<navigator url="../findProject/findProject">
+					<view class="header_tabbar_li" id="findProject" @click="tofindProject()">
+						<view>
 							<image src="../../static/images/tb1.png" alt="">
 								<text class="tab_title">找项目</text>
-						</navigator>
+						</view>
 					</view>
 					<view class="header_tabbar_li" id="findPolicy">
-						<navigator url="./czc">
-							<image src="../../static/images/tb2.png" alt="">
+						<view>
+							<image src="../../static/images/tb2.png" alt="" @click="checkPolicy()">
 								<text class="tab_title">查政策</text>
-						</navigator>
+						</view>
 					</view>
 					<view class="header_tabbar_li" id="search">
-						<navigator url="../integratedQuery/integratedQuery">
-							<image src="../../static/images/tb3.png" alt="">
+						<view>
+							<image src="../../static/images/tb3.png" alt="" @click="integratedQuery()">
 								<text class="tab_title">综合查询</text>
-						</navigator>
+						</view>
 					</view>
 					<view class="header_tabbar_li" id="result">
-						<navigator url="../results/result">
-							<image src="../../static/images/tb4.png" alt="">
+						<view>
+							<image src="../../static/images/tb4.png" alt="" @click="findResult()">
 								<text class="tab_title">交易结果</text>
-						</navigator>
+						</view>
 					</view>
 				</view>
 			</view>
@@ -40,44 +41,122 @@
 			</view>
 			<!-- 新闻 -->
 			<view class="main-div">
-				<view class="main-ul" v-for="project in Project">
+				<view class="main-ul" v-for="project in Project" :key="project.id" :index="project.id"
+					@click="toNewsDetails(project.id,project.title)">
 					<view class="main-li">
-						<navigator url="./news">
-							<text class="main-span">{{project.name}}</text>
-							<text class="main-time">{{project.time}}</text>
-						</navigator>
+						<view>
+							<view class="main-span">{{project.title}}</view>
+							<view class="main-time">{{project.publishdate}}</view>
+						</view>
+						<!-- <view class="text" v-for="(num,index) in data" :key="index">list - {{num}}</view> -->
 					</view>
 				</view>
 			</view>
+			<view class="zjTitle" v-if="zjTitle">{{loadingText}}</view>
 		</view>
+
 	</view>
 </template>
 
 <script>
+	// 首页新闻动态页数
+	var pageIndex = 1;
 	export default {
 		data() {
 			return {
+				// 首页新闻动态页数
+				// pageIndex: 1,
+				// 首页新闻动态默认显示条数
+				pageSize: 10,
+				// 首页新闻数据
 				Project: [],
+				//加载中...
+				loadingText: '加载中...',
+				// 是否显示加载文字
+				zjTitle: false
 			}
 		},
 		mounted() {
-			this.getProject()
+			this.getfirstProject()
+		},
+		// 下拉刷新
+		onPullDownRefresh() {
+			pageIndex = 1;
+			console.log('下拉' + pageIndex);
+			this.onRefresh();
+		},
+		//上拉加载
+		onReachBottom() {
+			setTimeout(() => {
+				this.getProject();
+			}, 300);
 		},
 		methods: {
-			getProject() {
+			//初始页面加载
+			getfirstProject() {
 				uni.request({
-					url:this.$url + 'api-zlb/queryNew.do',
+					url: this.$url + 'api-zlb/queryNew.do?' + "pageIndex=" + pageIndex + "&" + "pageSize=" + this
+						.pageSize,
+
 					// url:'http://localhost:8081/static/json/index.json',
 					sslVerify: false,
 					success: (res) => {
 						console.log('request success', res)
 						this.res = '请求结果 : ' + JSON.stringify(res);
-						this.Project = res.data.Index
+						this.Project = res.data.data;
+						pageIndex++;
 					},
 					fail: (err) => {
 						console.log('request fail', err);
 						uni.showModal({
-							content: err.errMsg,
+							content: err.message,
+							showCancel: false
+						});
+					},
+					complete: () => {
+						setTimeout(() => {
+							this.loading = false;
+							//隐藏loading 提示框
+							wx.hideLoading();
+							//隐藏导航条加载动画
+							wx.hideNavigationBarLoading();
+							//停止下拉刷新
+							wx.stopPullDownRefresh();
+						}, 1000);
+					}
+				})
+			},
+			onRefresh() {
+				//在当前页面显示导航条加载动画
+				wx.showNavigationBarLoading();
+				//显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
+				wx.showLoading({
+					title: '刷新中...',
+				})
+				this.getfirstProject()
+			},
+			//下拉获取数据
+			getProject() {
+				uni.request({
+					url: this.$url + 'api-zlb/queryNew.do?' + "pageIndex=" + pageIndex + "&" + "pageSize=" + this
+						.pageSize,
+					// url:'http://localhost:8081/static/json/index.json',
+					sslVerify: false,
+					success: (res) => {
+						console.log('request success', res)
+						this.res = '请求结果 : ' + JSON.stringify(res);
+						if (res.data.code == "参数异常") {
+							this.loadingText = "暂无更多数据";
+							return;
+						}
+						pageIndex++;
+						this.Project = this.Project.concat(res.data.data); //将数据拼接在一起
+						this.zjTitle = true
+					},
+					fail: (err) => {
+						console.log('request fail', err);
+						uni.showModal({
+							content: err.message,
 							showCancel: false
 						});
 					},
@@ -86,6 +165,59 @@
 					}
 				})
 			},
+			//新闻详情
+			toNewsDetails(id, title) {
+				uni.navigateTo({
+					url: "./news?" + "id=" + id + "&" + "title=" + title,
+					success: () => {
+
+					},
+					fail: () => {},
+					complete: () => {},
+				})
+			},
+			//综合查询
+			integratedQuery() {
+				uni.navigateTo({
+					url: "../integratedQuery/integratedQuery",
+					success: () => {},
+					fail: () => {},
+					complete: () => {},
+				})
+			},
+			//找项目
+			tofindProject() {
+				uni.navigateTo({
+					url: "../findProject/findProject",
+					success: () => {
+
+					},
+					fail: () => {},
+					complete: () => {},
+				})
+			},
+			//查政策
+			checkPolicy() {
+				uni.navigateTo({
+					url: "./czc",
+					success: () => {
+
+					},
+					fail: () => {},
+					complete: () => {},
+				})
+			},
+			//查结果
+			findResult() {
+				uni.navigateTo({
+					url: "../results/result",
+					success: () => {
+
+					},
+					fail: () => {},
+					complete: () => {},
+				})
+			}
 		},
 	}
 </script>
@@ -105,7 +237,8 @@
 		background-size: 100% 100%;
 		position: relative;
 	}
-	.header-image{
+
+	.header-image {
 		height: 590rpx;
 		width: 100%;
 	}
@@ -119,7 +252,8 @@
 		align-items: center;
 		justify-content: center;
 	}
-	.header_title image{
+
+	.header_title image {
 		margin-top: 40rpx;
 		text-align: center;
 		height: 160rpx;
@@ -147,7 +281,7 @@
 		align-items: center;
 	}
 
-	.header_tabbar_li navigator {
+	.header_tabbar_li view {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -213,7 +347,7 @@
 	}
 
 	.main-li:last-child {
-		/* border-bottom: none; */
+		border-bottom: none;
 	}
 
 	.main-li text {
@@ -221,17 +355,35 @@
 		flex: 1;
 		align-items: center;
 		justify-content: flex-start;
+		width: 0;
 	}
 
 	.main-span {
 		font-weight: bold;
 		font-size: 30rpx;
 		margin-top: 5rpx;
+		overflow: hidden;
+		/*超出部分隐藏*/
+		white-space: nowrap;
+		/*不换行*/
+		text-overflow: ellipsis;
+		/*超出部分文字以...显示*/
+
 	}
 
 	.main-time {
 		color: #727272;
 		font-size: 19rpx;
 		margin-top: 15rpx;
+	}
+
+	.zjTitle {
+		width: 100%;
+		height: 80rpx;
+		background-color: #e7e7e7;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #9d9d9d;
 	}
 </style>

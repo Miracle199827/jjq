@@ -2,7 +2,7 @@
 
 /***/ 60:
 /*!***********************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/main.js?{"page":"pages%2FintegratedQuery%2FintegratedQuery"} ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/main.js?{"page":"pages%2FintegratedQuery%2FintegratedQuery"} ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18,7 +18,7 @@ createPage(_integratedQuery.default);
 
 /***/ 61:
 /*!****************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue ***!
   \****************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -59,7 +59,7 @@ component.options.__file = "pages/integratedQuery/integratedQuery.vue"
 
 /***/ 62:
 /*!***********************************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=template&id=0d4e551c&scoped=true& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=template&id=0d4e551c&scoped=true& ***!
   \***********************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 63:
 /*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=template&id=0d4e551c&scoped=true& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=template&id=0d4e551c&scoped=true& ***!
   \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -96,10 +96,10 @@ var components
 try {
   components = {
     uniEasyinput: function() {
-      return __webpack_require__.e(/*! import() | components/uni-easyinput/uni-easyinput */ "components/uni-easyinput/uni-easyinput").then(__webpack_require__.bind(null, /*! @/components/uni-easyinput/uni-easyinput.vue */ 84))
+      return __webpack_require__.e(/*! import() | components/uni-easyinput/uni-easyinput */ "components/uni-easyinput/uni-easyinput").then(__webpack_require__.bind(null, /*! @/components/uni-easyinput/uni-easyinput.vue */ 91))
     },
     uniIcons: function() {
-      return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 76))
+      return Promise.all(/*! import() | components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/components/uni-icons/uni-icons.vue */ 98))
     }
   }
 } catch (e) {
@@ -134,7 +134,7 @@ render._withStripped = true
 
 /***/ 64:
 /*!*****************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=script&lang=js& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=script&lang=js& ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -150,7 +150,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 65:
 /*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=script&lang=js& ***!
   \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -186,15 +186,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+
+var pageIndex = 1;var _default =
 {
   data: function data() {
     return {
+      pageSize: 10,
       Choose1: true,
       Choose2: true,
-      typeArray: ['全部', '土地经营权', '农村集体经营性资产', '涉农资金项目'],
+      typeArray: ['土地经营权', '农村养殖水面经营权', '“四荒”使用权', '林权', '农村集体经营性资产', '农业生产设施设备', '小型水利设施', '涉农资金项目', '农民住房财产权', '农户宅基地使用权', '农村集体资产股权', '海域使用权', '农业类知识产权', '其他'],
       typeIndex: 0,
-      areaArray: ['全部', '0~10亩', '10~50亩', '50~100亩', '100~500亩', '500亩以上'],
+      areaArray: ['0-10亩', '10-50亩', '50-100亩', '100亩以上'],
       areaIndex: 0,
       IntegratedQuery: [],
       value: '' };
@@ -217,7 +219,7 @@ var _default =
     getIntegratedQuery: function getIntegratedQuery() {var _this = this;
       uni.request({
         // url:'http://localhost:8080/static/json/integratedQuery.json',
-        url: '../../static/json/integratedQuery.json',
+        url: this.$url + 'api-zlb/queryZhcx.do',
         success: function success(res) {
           console.log('request success', res);
           _this.res = '请求结果 : ' + JSON.stringify(res);
@@ -246,6 +248,7 @@ var _default =
       this.Choose2 = false;
     },
     gotoDetails: function gotoDetails() {
+      console.log(111);
       uni.navigateTo({
         url: "../projectDetails/projectDetails" });
 
@@ -256,7 +259,7 @@ var _default =
 
 /***/ 66:
 /*!*************************************************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=style&index=0&id=0d4e551c&scoped=true&lang=css& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=style&index=0&id=0d4e551c&scoped=true&lang=css& ***!
   \*************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -272,7 +275,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 67:
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/integratedQuery/integratedQuery.vue?vue&type=style&index=0&id=0d4e551c&scoped=true&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/integratedQuery/integratedQuery.vue?vue&type=style&index=0&id=0d4e551c&scoped=true&lang=css& ***!
   \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

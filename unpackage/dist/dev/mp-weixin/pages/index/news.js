@@ -2,7 +2,7 @@
 
 /***/ 36:
 /*!**************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/main.js?{"page":"pages%2Findex%2Fnews"} ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/main.js?{"page":"pages%2Findex%2Fnews"} ***!
   \**************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18,7 +18,7 @@ createPage(_news.default);
 
 /***/ 37:
 /*!*******************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue ***!
   \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -59,7 +59,7 @@ component.options.__file = "pages/index/news.vue"
 
 /***/ 38:
 /*!**************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=template&id=f675b1ae&scoped=true& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=template&id=f675b1ae&scoped=true& ***!
   \**************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 39:
 /*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=template&id=f675b1ae&scoped=true& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=template&id=f675b1ae&scoped=true& ***!
   \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -108,7 +108,7 @@ render._withStripped = true
 
 /***/ 40:
 /*!********************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=script&lang=js& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=script&lang=js& ***!
   \********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -124,7 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 41:
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=script&lang=js& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -144,57 +144,61 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 var _default =
 {
   data: function data() {
     return {
-      Project: [],
-      main: [],
-      mainul: [] };
-
+      // 新闻id
+      newId: 0,
+      //新闻title
+      newTitle: '',
+      //新闻时间
+      publishDate: '',
+      //新闻内容
+      main: ''
+      // mainul: [],
+    };
+  },
+  onLoad: function onLoad(potion) {
+    // this.get_h(potion.potion)
+    console.log(potion.id);
+    this.newId = potion.id;
+    this.newTitle = potion.title;
   },
   mounted: function mounted() {
     this.getProject();
   },
+  updated: function updated() {
+    var p = document.querySelectorAll('p');
+    var span = document.querySelectorAll('span');
+    var div = document.getElementsByClassName('fwxxxqmain-main');
+    for (var i = 0; i < p.length; i++) {
+      p[i].style.fontSize = "16px";
+      p[i].style.fontFamily = "kaiti";
+      p[i].style.fontWeight = "500";
+    }
+    for (var i = 0; i < span.length; i++) {
+      span[i].style.fontSize = "16px";
+      span[i].style.fontFamily = "kaiti";
+      span[i].style.fontWeight = "500";
+    }
+    for (var i = 0; i < div.length; i++) {
+      div[i].style.fontSize = "16px";
+      div[i].style.fontFamily = "kaiti";
+      div[i].style.fontWeight = "500";
+    }
+    document.querySelector('img').style.width = "100%";
+  },
   methods: {
     getProject: function getProject() {var _this = this;
       uni.request({
-        url: '../../static/json/news.json',
+        url: this.$url + 'api-zlb/queryNewDetail.do?' + 'newId=' + this.newId,
         sslVerify: false,
         success: function success(res) {
           console.log('request success', res);
           _this.res = '请求结果 : ' + JSON.stringify(res);
-          _this.Project = res.data.Czc;
-          _this.main = res.data.main;
-          _this.mainul = res.data.mainul;
+          _this.publishDate = res.data.data.publishDate;
+          _this.main = res.data.data.content;
         },
         fail: function fail(err) {
           console.log('request fail', err);
@@ -205,6 +209,8 @@ var _default =
         },
         complete: function complete() {
           _this.loading = false;
+
+
         } });
 
     } } };exports.default = _default;
@@ -214,7 +220,7 @@ var _default =
 
 /***/ 42:
 /*!****************************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=style&index=0&id=f675b1ae&scoped=true&lang=css& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=style&index=0&id=f675b1ae&scoped=true&lang=css& ***!
   \****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -230,7 +236,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 43:
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/news.vue?vue&type=style&index=0&id=f675b1ae&scoped=true&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/news.vue?vue&type=style&index=0&id=f675b1ae&scoped=true&lang=css& ***!
   \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

@@ -2,7 +2,7 @@
 
 /***/ 20:
 /*!***************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/main.js?{"page":"pages%2Findex%2Findex"} ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/main.js?{"page":"pages%2Findex%2Findex"} ***!
   \***************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18,7 +18,7 @@ createPage(_index.default);
 
 /***/ 21:
 /*!********************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue ***!
   \********************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -59,7 +59,7 @@ component.options.__file = "pages/index/index.vue"
 
 /***/ 22:
 /*!***************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=template&id=57280228&scoped=true& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=template&id=57280228&scoped=true& ***!
   \***************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -81,7 +81,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 23:
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=template&id=57280228&scoped=true& ***!
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--16-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-uni-app-loader/page-meta.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=template&id=57280228&scoped=true& ***!
   \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns, recyclableRender, components */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -108,7 +108,7 @@ render._withStripped = true
 
 /***/ 24:
 /*!*********************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=script&lang=js& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=script&lang=js& ***!
   \*********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -124,7 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 25:
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=script&lang=js& ***!
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=script&lang=js& ***!
   \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -185,37 +185,169 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-var _default =
+//
+//
+//
+//
+//
+
+// 首页新闻动态页数
+var pageIndex = 1;var _default =
 {
   data: function data() {
     return {
-      Project: [] };
+      // 首页新闻动态页数
+      // pageIndex: 1,
+      // 首页新闻动态默认显示条数
+      pageSize: 10,
+      // 首页新闻数据
+      Project: [],
+      //加载中...
+      loadingText: '加载中...',
+      // 是否显示加载文字
+      zjTitle: false };
 
   },
   mounted: function mounted() {
-    this.getProject();
+    this.getfirstProject();
+  },
+  // 下拉刷新
+  onPullDownRefresh: function onPullDownRefresh() {
+    pageIndex = 1;
+    console.log('下拉' + pageIndex);
+    this.onRefresh();
+  },
+  //上拉加载
+  onReachBottom: function onReachBottom() {var _this = this;
+    setTimeout(function () {
+      _this.getProject();
+    }, 300);
   },
   methods: {
-    getProject: function getProject() {var _this = this;
+    //初始页面加载
+    getfirstProject: function getfirstProject() {var _this2 = this;
       uni.request({
-        url: this.$url + 'api-zlb/queryNew.do',
+        url: this.$url + 'api-zlb/queryNew.do?' + "pageIndex=" + pageIndex + "&" + "pageSize=" + this.
+        pageSize,
+
         // url:'http://localhost:8081/static/json/index.json',
         sslVerify: false,
         success: function success(res) {
           console.log('request success', res);
-          _this.res = '请求结果 : ' + JSON.stringify(res);
-          _this.Project = res.data.Index;
+          _this2.res = '请求结果 : ' + JSON.stringify(res);
+          _this2.Project = res.data.data;
+          pageIndex++;
         },
         fail: function fail(err) {
           console.log('request fail', err);
           uni.showModal({
-            content: err.errMsg,
+            content: err.message,
             showCancel: false });
 
         },
         complete: function complete() {
-          _this.loading = false;
+          setTimeout(function () {
+            _this2.loading = false;
+            //隐藏loading 提示框
+            wx.hideLoading();
+            //隐藏导航条加载动画
+            wx.hideNavigationBarLoading();
+            //停止下拉刷新
+            wx.stopPullDownRefresh();
+          }, 1000);
         } });
+
+    },
+    onRefresh: function onRefresh() {
+      //在当前页面显示导航条加载动画
+      wx.showNavigationBarLoading();
+      //显示 loading 提示框。需主动调用 wx.hideLoading 才能关闭提示框
+      wx.showLoading({
+        title: '刷新中...' });
+
+      this.getfirstProject();
+    },
+    //下拉获取数据
+    getProject: function getProject() {var _this3 = this;
+      uni.request({
+        url: this.$url + 'api-zlb/queryNew.do?' + "pageIndex=" + pageIndex + "&" + "pageSize=" + this.
+        pageSize,
+        // url:'http://localhost:8081/static/json/index.json',
+        sslVerify: false,
+        success: function success(res) {
+          console.log('request success', res);
+          _this3.res = '请求结果 : ' + JSON.stringify(res);
+          if (res.data.code == "参数异常") {
+            _this3.loadingText = "暂无更多数据";
+            return;
+          }
+          pageIndex++;
+          _this3.Project = _this3.Project.concat(res.data.data); //将数据拼接在一起
+          _this3.zjTitle = true;
+        },
+        fail: function fail(err) {
+          console.log('request fail', err);
+          uni.showModal({
+            content: err.message,
+            showCancel: false });
+
+        },
+        complete: function complete() {
+          _this3.loading = false;
+        } });
+
+    },
+    //新闻详情
+    toNewsDetails: function toNewsDetails(id, title) {
+      uni.navigateTo({
+        url: "./news?" + "id=" + id + "&" + "title=" + title,
+        success: function success() {
+
+        },
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    //综合查询
+    integratedQuery: function integratedQuery() {
+      uni.navigateTo({
+        url: "../integratedQuery/integratedQuery",
+        success: function success() {},
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    //找项目
+    tofindProject: function tofindProject() {
+      uni.navigateTo({
+        url: "../findProject/findProject",
+        success: function success() {
+
+        },
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    //查政策
+    checkPolicy: function checkPolicy() {
+      uni.navigateTo({
+        url: "./czc",
+        success: function success() {
+
+        },
+        fail: function fail() {},
+        complete: function complete() {} });
+
+    },
+    //查结果
+    findResult: function findResult() {
+      uni.navigateTo({
+        url: "../results/result",
+        success: function success() {
+
+        },
+        fail: function fail() {},
+        complete: function complete() {} });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
@@ -224,7 +356,7 @@ var _default =
 
 /***/ 26:
 /*!*****************************************************************************************************************!*\
-  !*** D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=style&index=0&id=57280228&scoped=true&lang=css& ***!
+  !*** D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=style&index=0&id=57280228&scoped=true&lang=css& ***!
   \*****************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -240,7 +372,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ 27:
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-01/pages/index/index.vue?vue&type=style&index=0&id=57280228&scoped=true&lang=css& ***!
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/css-loader/dist/cjs.js??ref--6-oneOf-1-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-2!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/小程序开发/my/椒江区农村产权交易09-13/pages/index/index.vue?vue&type=style&index=0&id=57280228&scoped=true&lang=css& ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {

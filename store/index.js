@@ -10,6 +10,7 @@ import { createStore } from 'vuex'
 const store = createStore({
 // #endif
 	state: {
+		requestLoading: false, //加载等待是否显示
 		hasLogin: false,
 		isUniverifyLogin: false,
 		loginProvider: "",
@@ -25,6 +26,14 @@ const store = createStore({
 		univerifyErrorMsg: ''
 	},
 	mutations: {
+		//显示请求加载动画
+		request_show_loading(state) {
+			state.requestLoading = true;
+		},
+		//隐藏请求加载动画
+		request_hide_loading(state) {
+			state.requestLoading = false;
+		},
 		login(state, provider) {
 			state.hasLogin = true;
 			state.loginProvider = provider;

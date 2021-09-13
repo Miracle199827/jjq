@@ -1,4 +1,14 @@
 
+.search.data-v-6ecf1bc8{
+	padding: 15rpx 28rpx;
+	border-bottom: 2rpx solid #e5e5e5;
+}
+uni-easyinput.data-v-6ecf1bc8{
+	background-color: #FFFFFF;
+}
+uni-page-body.data-v-6ecf1bc8{
+	background-color: #fff !important;
+}
 uni-page-body.data-v-6ecf1bc8{
 	background-color: #fff !important;
 }

@@ -1,6 +1,8 @@
 {
   "navigationBarTitleText": "找项目",
+  "enablePullDownRefresh": true,
   "usingComponents": {
+    "uni-easyinput": "/components/uni-easyinput/uni-easyinput",
     "uni-icons": "/components/uni-icons/uni-icons"
   }
 }

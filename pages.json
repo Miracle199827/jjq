@@ -5,6 +5,7 @@
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": " ",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "24px" //pages.json里不支持 upx
@@ -16,6 +17,7 @@
 			"path": "pages/index/czc",
 			"style": {
 				"navigationBarTitleText": "查政策",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "22px" //pages.json里不支持 upx
@@ -27,6 +29,7 @@
 			"path": "pages/index/news",
 			"style": {
 				"navigationBarTitleText": "新闻详情",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "22px" //pages.json里不支持 upx
@@ -39,6 +42,7 @@
 			"path": "pages/findProject/findProject",
 			"style": {
 				"navigationBarTitleText": "找项目",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "22px" //pages.json里不支持 upx
@@ -51,6 +55,7 @@
 			"path": "pages/results/result",
 			"style": {
 				"navigationBarTitleText": "交易结果",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "22px" //pages.json里不支持 upx
@@ -63,6 +68,7 @@
 			"path": "pages/integratedQuery/integratedQuery",
 			"style": {
 				"navigationBarTitleText": "综合查询",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {
 						// "titleSize": "22px" //pages.json里不支持 upx
@@ -75,6 +81,18 @@
 			"path": "pages/projectDetails/projectDetails",
 			"style": {
 				"navigationBarTitleText": "项目详情",
+				"enablePullDownRefresh": true,
+				"app-plus": {
+					"titleNView": {}
+				}
+			}
+		},
+		//已公示项目详情
+		{
+			"path": "pages/results/resultDetails",
+			"style": {
+				"navigationBarTitleText": "项目详情",
+				"enablePullDownRefresh": true,
 				"app-plus": {
 					"titleNView": {}
 				}

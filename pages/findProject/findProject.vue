@@ -1,5 +1,11 @@
 <template>
 	<view class="findProject_content">
+		<!-- <request-loading></request-loading> -->
+		<view class="search">
+			<view class="example">
+				<uni-easyinput prefixIcon="search" v-model="value" placeholder="搜索词" @iconClick="iconClick" @input="input" style="background-color: #F5F5F5;"></uni-easyinput>
+			</view>
+		</view>
 		<view class="screen">
 			<picker class="screen_choose" mode="selector" :value="typeIndex" :range="typeArray" @change="typeChange">
 				<text v-if="Choose1">产权类型</text>
@@ -38,6 +44,7 @@
 		},
 		mounted() {
 			this.getProject()
+			// this.$hideLoading()
 		},
 		methods: {
 			getProject() {
@@ -81,7 +88,18 @@
 </script>
 
 <style scoped>
+	.search{
+		padding: 15rpx 28rpx;
+		border-bottom: 2rpx solid #e5e5e5;
+	}
 	
+	uni-easyinput{
+		background-color: #FFFFFF;
+	}
+	
+	uni-page-body{
+		background-color: #fff !important;
+	}
 	uni-page-body{
 		background-color: #fff !important;
 	}

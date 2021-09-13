@@ -6,7 +6,8 @@
     "pages/findProject/findProject",
     "pages/results/result",
     "pages/integratedQuery/integratedQuery",
-    "pages/projectDetails/projectDetails"
+    "pages/projectDetails/projectDetails",
+    "pages/results/resultDetails"
   ],
   "subPackages": [],
   "window": {
@@ -23,6 +24,7 @@
       "desc": "演示定位能力"
     }
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {
+    "request-loading": "/components/loadingNow"
+  }
 }

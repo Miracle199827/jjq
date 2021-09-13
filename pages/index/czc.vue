@@ -1,12 +1,15 @@
 <template>
 	<view class="content">
+		<view class="search">
+			<view class="example">
+				<uni-easyinput prefixIcon="search" v-model="value" placeholder="搜索词" @iconClick="iconClick" @input="input" style="background-color: #F5F5F5;"></uni-easyinput>
+			</view>
+		</view>
 		<view class="main-div">
-			<view class="main-ul" v-for="project in Project">
+			<view class="main-ul" v-for="policy in Policy" :key="policy.id">
 				<view class="main-li">
-					<navigator url="./news">
-						<text class="main-span">{{project.name}}</text>
-						<text class="main-time">{{project.time}}</text>
-					</navigator>
+					<text class="main-span">{{policy.title}}</text>
+					<text class="main-time">{{policy.publishDate}}</text>
 				</view>
 			</view>
 		</view>
@@ -14,25 +17,38 @@
 </template>
 
 <script>
+	var pageIndex = 1;
 	export default {
 		data() {
 			return {
-				Project: [],
+				pageSize: 20,
+				Policy:[],
+				value:''
 			}
 	
 		},
 		mounted() {
-			this.getProject()
+			this.getPolicy()
 		},
 		methods: {
-			getProject() {
+			input(e) {
+				console.log('输入内容：', e);
+			},
+			iconClick(type) {
+				uni.showToast({
+					title: `点击了${type==='prefix'?'左侧':'右侧'}的图标`,
+					icon: 'none'
+				})
+				console.log(this.value)
+			},
+			getPolicy() {
 				uni.request({
-					url:'../../static/json/czc.json',
-					sslVerify: false,
+					url: this.$url + 'api-zlb/queryPolicy.do' ,
 					success:(res)=>{
 						console.log('request success', res)
 						this.res = '请求结果 : ' + JSON.stringify(res);
-						this.Project = res.data.Czc
+						this.Policy = res.data.data.dataList
+						console.log(res.data.data.dataList)
 					},
 					fail: (err) => {
 						console.log('request fail', err);
@@ -51,6 +67,16 @@
 </script>
 
 <style scoped>
+	
+	.search{
+		padding: 15rpx 28rpx;
+		border-bottom: 2rpx solid #e5e5e5;
+	}
+	
+	uni-easyinput{
+		background-color: #FFFFFF;
+	}
+	
 	uni-page-body {
 		background: #FFFFFF !important;
 	}
